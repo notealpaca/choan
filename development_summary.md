@@ -23,6 +23,7 @@
   - 静的なHTML記述から、Google Sheets (CSV形式) を読み込んで動的に表示するJavaScript実装に変更。
   - **データソース**: `https://docs.google.com/spreadsheets/d/1nGbJXqi7QZn3OZgdBYRoKTXLa-MqDXrXmmo6ENQeaAo/export?format=csv&gid=1839177219`
   - **表示制御**: スプレッドシートの A列 (`表示chk`) を参照し、`TRUE` の記事のみを表示するようにフィルタリングを実装。
+  - **インスタグラム連携**: スプレッドシートの L列 に URL がある場合、記事カードに「インスタグラムで見る」リンクを動的に表示。
   - カテゴリごとのフィルタリング、表示件数制御、フェードインアニメーションを実装。
 - **サービスセクション**:
   - 「オードブル・仕出し弁当」のリンク先を `index-order.html` に変更。

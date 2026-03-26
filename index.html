@@ -549,7 +549,7 @@
     <header class="site-header">
         <div class="container">
             <div class="logo">
-                <a href="https://universe.tea-under.club/choan/">
+                <a href="https://choan.jp">
                     <img src="./assets/choan-20240207.png" alt="合同会社 長安">
                 </a>
             </div>
@@ -606,6 +606,7 @@
                                 // Index 4: Title (イベントタイトル / テーマ)
                                 // Index 5: Type (種類) -> Category
                                 // Index 10: Note (備考) -> Excerpt
+                                // Index 11: Instagram URL (L列)
 
                                 // Skip header (row 0) and process rows
                                 const categoryCounts = {};
@@ -624,6 +625,7 @@
                                         const title = cols[4] ? cols[4].trim() : '';
                                         const type = cols[5] ? cols[5].trim() : '';
                                         const excerpt = cols[10] ? cols[10].trim() : '';
+                                        const instaUrl = cols[11] ? cols[11].trim() : '';
 
                                         if (!date && !title) continue; // Skip if no core data
 
@@ -632,7 +634,7 @@
                                             categoryCounts[type] = (categoryCounts[type] || 0) + 1;
                                         }
 
-                                        articles.push({ date, title, excerpt, type });
+                                        articles.push({ date, title, excerpt, type, instaUrl });
                                     }
                                 }
 
@@ -653,7 +655,7 @@
                                         <p class="news-excerpt">${displayExcerpt}</p>
                                         <div style="margin-top:auto">
                                             ${article.type ? `<span style="font-size:0.75rem; background:#f0f0f0; padding:2px 8px; border-radius:10px; color:#666; margin-bottom:0.5rem; display:inline-block;">${article.type}</span><br>` : ''}
-                                            <!-- <span class="read-more">インスタグラムで見る</span> -->
+                                            ${article.instaUrl ? `<a href="${article.instaUrl}" target="_blank" rel="noopener noreferrer" class="read-more">インスタグラムで見る</a>` : ''}
                                          </div>
                                     `;
                                     newsGrid.appendChild(articleEl);
