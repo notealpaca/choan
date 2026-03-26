@@ -601,6 +601,7 @@
                                 newsGrid.innerHTML = '';
 
                                 // Data mapping based on CSV columns:
+                                // Index 0: Display Check (表示chk)
                                 // Index 1: Date (日時)
                                 // Index 4: Title (イベントタイトル / テーマ)
                                 // Index 5: Type (種類) -> Category
@@ -615,6 +616,9 @@
                                     for (let i = 1; i < rows.length; i++) {
                                         const cols = rows[i];
                                         if (cols.length < 5) continue; // Skip empty/invalid rows
+
+                                        const displayChk = cols[0] ? cols[0].trim().toUpperCase() : '';
+                                        if (displayChk !== 'TRUE') continue; // Skip if not checked
 
                                         const date = cols[1] ? cols[1].trim() : '';
                                         const title = cols[4] ? cols[4].trim() : '';
@@ -649,7 +653,7 @@
                                         <p class="news-excerpt">${displayExcerpt}</p>
                                         <div style="margin-top:auto">
                                             ${article.type ? `<span style="font-size:0.75rem; background:#f0f0f0; padding:2px 8px; border-radius:10px; color:#666; margin-bottom:0.5rem; display:inline-block;">${article.type}</span><br>` : ''}
-                                            <span class="read-more">インスタグラムで見る</span>
+                                            <!-- <span class="read-more">インスタグラムで見る</span> -->
                                          </div>
                                     `;
                                     newsGrid.appendChild(articleEl);
