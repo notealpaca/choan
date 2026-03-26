@@ -13,7 +13,7 @@
  * 6. 発行された「ウェブアプリのURL」を inquiry.html に貼り付ける
  */
 
-const NOTIFICATION_EMAIL = "info@choan2023.com"; // 通知先メールアドレス
+const NOTIFICATION_EMAIL = "sady225@gmail.com"; // 通知先メールアドレス info@choan2023.com
 
 function doPost(e) {
   try {
