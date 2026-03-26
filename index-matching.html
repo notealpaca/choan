@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>宴会・お食事マッチング | 長安 (ちょうあん)</title>
+    <meta name="description" content="お客様のご要望やご予算に合わせて、最適な飲食店やお弁当、ケータリングサービスをご紹介・マッチングいたします。食のトータルコーディネート。">
+    <link rel="icon" type="image/png" href="./assets/choan-20240207.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FCEAB5;
+            --color-text-main: #2c2c2c;
+            --color-text-muted: #6e6e6e;
+            --color-accent: #d35400;
+            --color-accent-light: #fbeee6;
+            --color-primary: #5d4037;
+            --color-secondary: #8d6e63;
+            --color-surface: #ffffff;
+            --border-radius: 12px;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.08);
+            --font-main: 'Zen Maru Gothic', sans-serif;
+            --max-width: 1000px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        /* Header */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(252, 252, 249, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        .cta-button-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cta-button-header:hover {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        /* Hero Banner */
+        .page-hero {
+            padding-top: 140px;
+            padding-bottom: 5rem;
+            text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./assets/matching.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .page-hero-sub {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Concept Section */
+        .concept-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .concept-box {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .concept-box p {
+            font-size: 1.05rem;
+            color: var(--color-primary);
+            line-height: 2;
+        }
+
+        .concept-highlight {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        /* Use Case Cards */
+        .usecase-section {
+            background: #f7f3f0;
+        }
+
+        .usecase-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .usecase-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .usecase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .usecase-header {
+            padding: 1.5rem 2rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .usecase-header-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .usecase-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .usecase-card:nth-child(1) .usecase-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .usecase-card:nth-child(2) .usecase-header {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .usecase-card:nth-child(3) .usecase-header {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .usecase-body {
+            padding: 2rem;
+        }
+
+        .usecase-body p {
+            color: var(--color-text-main);
+            font-size: 1rem;
+            line-height: 1.9;
+        }
+
+        .usecase-note {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-accent-light);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        /* Flow Section */
+        .flow-section {
+            background: white;
+        }
+
+        .flow-steps {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            position: relative;
+            padding-bottom: 2.5rem;
+        }
+
+        .flow-step:last-child {
+            padding-bottom: 0;
+        }
+
+        .flow-step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-accent), #e67e22);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(211, 84, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .flow-step:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 23px;
+            top: 48px;
+            width: 2px;
+            height: calc(100% - 48px);
+            background: linear-gradient(to bottom, var(--color-accent), #e0c8b0);
+        }
+
+        .flow-step-content {
+            padding-top: 0.5rem;
+        }
+
+        .flow-step-content h4 {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .flow-step-content p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Strength Section */
+        .strength-section {
+            background: #f7f3f0;
+        }
+
+        .strength-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .strength-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+
+        .strength-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .strength-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .strength-card h4 {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .strength-card p {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            color: white;
+        }
+
+        .cta-section h2::after {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .cta-section p {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: white;
+            color: var(--color-primary);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            color: var(--color-accent);
+        }
+
+        .cta-tel {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-tel-note {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 0.3rem;
+        }
+
+        /* Back to top */
+        .back-link {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .btn-back {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.8rem 2.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.3);
+            color: white;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        /* Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.8s;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html"><img src="./assets/choan-20240207.png" alt="合同会社 長安"></a>
+            </div>
+            <a href="./inquiry.html" class="cta-button-header">お問い合わせ</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>宴会・お食事マッチング</h1>
+                <p class="page-hero-sub">食のトータルコーディネート</p>
+            </div>
+        </section>
+
+        <!-- Concept -->
+        <section class="section concept-section">
+            <div class="container">
+                <div class="concept-box fade-in-section">
+                    <h2>ご挨拶</h2>
+                    <p>
+                        「予算内で美味しい食事を用意したい」<br>
+                        「イベントに合わせたケータリングを頼みたいけれど、<br class="sp-hide">どこにお願いすればいいか分からない」<br><br>
+                        といったお悩みはありませんか？<br><br>
+                        私たちは、お客様の<span class="concept-highlight">「困った」に寄り添い</span>、<br>
+                        食を通じて解決のお手伝いをいたします。
+                    </p>
+                    <p style="margin-top: 1.5rem;">
+                        長年ホテルやサービス業で培ってきた<span class="concept-highlight">経験とネットワーク</span>を活かし、<br>
+                        お客様のご要望やご予算に合わせて、最適な飲食店やお弁当、<br>
+                        ケータリングサービスをご紹介・マッチングいたします。
+                    </p>
+                    <p style="margin-top: 1.5rem;">
+                        美味しい食事を真心を込めて作ってくださる<br>
+                        <span class="concept-highlight">作り手（協力飲食店様）</span>とお客様をつなぎ、<br>
+                        安心と笑顔をお届けします。
+                    </p>
+                    <p style="margin-top: 2rem; font-weight: 700; color: var(--color-accent);">
+                        どんな小さなことでも、まずはお気軽にご相談ください。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="section usecase-section">
+            <div class="container">
+                <h2>マッチングサービスの活用例</h2>
+                <div class="usecase-grid">
+
+                    <!-- Use Case 1 -->
+                    <div class="usecase-card fade-in-section">
+                        <div class="usecase-header">
+                            <span class="usecase-header-icon">🏢</span>
+                            <h3>社員食堂のご提案（企業様向け）</h3>
+                        </div>
+                        <div class="usecase-body">
+                            <p>
+                                「社員食堂を閉鎖してしまい、お弁当などの外部手配が増えていて困っている」という企業様へ。<br><br>
+                                社員の皆様が毎日美味しく召し上がれるよう、社員食堂の代わりとなるお食事手配のプランをご提案し、多彩な飲食店とマッチングいたします。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 2 -->
+                    <div class="usecase-card fade-in-section">
+                        <div class="usecase-header">
+                            <span class="usecase-header-icon">🏥</span>
+                            <h3>医療機関・各種施設様向けのお食事手配</h3>
+                        </div>
+                        <div class="usecase-body">
+                            <p>
+                                「限られた予算内でも、利用者様に喜ばれるお食事を用意したい」という施設様のご要望にお応えします。
+                            </p>
+                            <span class="usecase-note">※人間ドック受診者様向けのお食事手配などで、ご好評をいただいております</span>
+                        </div>
+                    </div>
+
+                    <!-- Use Case 3 -->
+                    <div class="usecase-card fade-in-section">
+                        <div class="usecase-header">
+                            <span class="usecase-header-icon">🎉</span>
+                            <h3>イベント・宴会等のケータリングマッチング</h3>
+                        </div>
+                        <div class="usecase-body">
+                            <p>
+                                お茶会や誕生日会から、大規模な学会・イベントまで、ご要望に合わせた飲食店をマッチングし、最適な食の空間をプロデュースいたします。
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Flow -->
+        <section class="section flow-section">
+            <div class="container">
+                <h2>ご利用の流れ</h2>
+                <div class="flow-steps fade-in-section">
+                    <div class="flow-step">
+                        <div class="flow-step-number">1</div>
+                        <div class="flow-step-content">
+                            <h4>お問い合わせ・ご相談</h4>
+                            <p>お電話またはフォームからお気軽にご連絡ください。ご要望やご予算をお聞かせください。</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-step-number">2</div>
+                        <div class="flow-step-content">
+                            <h4>ヒアリング・ご提案</h4>
+                            <p>お客様のニーズに合わせて、最適な飲食店やプランをご提案いたします。</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-step-number">3</div>
+                        <div class="flow-step-content">
+                            <h4>マッチング・お見積り</h4>
+                            <p>協力飲食店との調整を行い、メニューやお見積りをご提示します。</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-step-number">4</div>
+                        <div class="flow-step-content">
+                            <h4>ご注文・お届け</h4>
+                            <p>ご了承いただけましたら手配を進め、当日は美味しいお食事をお届けいたします。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strengths -->
+        <section class="section strength-section">
+            <div class="container">
+                <h2>長安が選ばれる理由</h2>
+                <div class="strength-grid">
+                    <div class="strength-card fade-in-section">
+                        <span class="strength-icon">🎯</span>
+                        <h4>ぴったりのご提案</h4>
+                        <p>ご予算や人数、シーンに合わせて最適な飲食店をご紹介します。</p>
+                    </div>
+                    <div class="strength-card fade-in-section">
+                        <span class="strength-icon">🤝</span>
+                        <h4>信頼のネットワーク</h4>
+                        <p>長年のホテル・サービス業経験で培った飲食店ネットワークを活用します。</p>
+                    </div>
+                    <div class="strength-card fade-in-section">
+                        <span class="strength-icon">💬</span>
+                        <h4>安心のサポート</h4>
+                        <p>小さなご相談からトータルコーディネートまで、まるごとお任せいただけます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container fade-in-section">
+                <h2>まずはお気軽にご相談ください</h2>
+                <p>「こんなことできる？」という段階でもOKです。<br>お客様のお悩みに寄り添い、最適なプランをご提案いたします。</p>
+                <a href="./inquiry.html" class="btn-cta">お問い合わせフォームへ</a>
+                <div class="cta-tel">
+                    Tel: 090-9783-2023 / 080-1759-4890
+                </div>
+                <p class="cta-tel-note">受付：平日・土 11:00〜17:00（日・祝日休み）</p>
+            </div>
+        </section>
+
+        <!-- Back -->
+        <div class="back-link">
+            <a href="./index.html" class="btn-back">トップページへ戻る</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="./inquiry.html">お問い合わせ</a>
+                <a href="./privacypolicy.html">個人情報保護方針</a>
+                <a href="https://www.instagram.com/choan.jp" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+            <p class="copyright">Copyright © Choan, LLC.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
