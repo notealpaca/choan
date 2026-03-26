@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>お問い合わせ | 長安 (ちょうあん)</title>
+    <meta name="description" content="合同会社 長安へのお問い合わせフォームです。">
+    <link rel="icon" type="image/png" href="./assets/choan-20240207.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FCEAB5;
+            --color-text-main: #2c2c2c;
+            --color-text-muted: #6e6e6e;
+            --color-accent: #d35400;
+            --color-accent-light: #fbeee6;
+            --color-primary: #5d4037;
+            --color-secondary: #8d6e63;
+            --color-surface: #ffffff;
+            --border-radius: 12px;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.08);
+            --font-main: 'Zen Maru Gothic', sans-serif;
+            --max-width: 1000px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(252, 252, 249, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        /* Page Title Area */
+        .page-header {
+            padding-top: 140px;
+            padding-bottom: 2rem;
+            text-align: center;
+            background: white;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background-color: var(--color-surface);
+            padding: 4rem 0 6rem;
+        }
+
+        .contact-form-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--color-bg);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--color-primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .badge-required {
+            background: var(--color-accent);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 400;
+        }
+
+        .badge-optional {
+            background: var(--color-secondary);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 400;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.1);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .form-footer {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .privacy-policy {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text-muted);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 84, 0, 0.3);
+        }
+
+        .btn-submit:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #form-message {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: none;
+            text-align: center;
+        }
+
+        #form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="./assets/choan-20240207.png" alt="合同会社 長安">
+                </a>
+            </div>
+            <a href="./index.html" class="cta-button-header"
+                style="background-color:var(--color-primary); color:white; padding: 0.5rem 1.2rem; border-radius:50px; font-size:0.9rem;">トップページへ</a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h2>お問い合わせ</h2>
+            </div>
+        </section>
+
+        <section class="section contact-section">
+            <div class="container">
+                <div class="contact-form-wrapper fade-in-section">
+                    <p class="contact-intro">以下のフォームに必要情報を入力してください。</p>
+
+                    <form id="inquiry-form">
+                        <div class="form-group">
+                            <label class="form-label" for="name">氏名 <span class="badge-required">必須</span></label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="例：佐藤 太郎"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="company">会社名 <span class="badge-optional">任意</span></label>
+                            <input type="text" id="company" name="company" class="form-control" placeholder="例：株式会社〇〇〇">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="email">メールアドレス <span class="badge-required">必須</span></label>
+                            <input type="email" id="email" name="email" class="form-control"
+                                placeholder="例：〇〇〇@gmail.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="tel">電話番号 <span class="badge-required">必須</span></label>
+                            <input type="tel" id="tel" name="tel" class="form-control" placeholder="例：098-123-4567"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">返信の要・不要 <span class="badge-required">必須</span></label>
+                            <div class="radio-group">
+                                <label class="radio-item"><input type="radio" name="reply" value="要・電話" required>
+                                    要・電話</label>
+                                <label class="radio-item"><input type="radio" name="reply" value="要・email">
+                                    要・email</label>
+                                <label class="radio-item"><input type="radio" name="reply" value="不要"> 不要</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">弊社を何で知りましたか <span class="badge-optional">任意</span></label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item"><input type="checkbox" name="source" value="紹介"> 紹介</label>
+                                <label class="checkbox-item"><input type="checkbox" name="source" value="チラシ">
+                                    チラシ</label>
+                                <label class="checkbox-item"><input type="checkbox" name="source" value="インターネット検索">
+                                    インターネット検索</label>
+                                <label class="checkbox-item"><input type="checkbox" name="source" value="SNS">
+                                    SNS</label>
+                                <label class="checkbox-item"><input type="checkbox" name="source" value="その他">
+                                    その他</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="message">メッセージ本文 <span
+                                    class="badge-required">必須</span></label>
+                            <textarea id="message" name="message" class="form-control" rows="5"
+                                placeholder="お問い合わせ内容を記載してください。" required></textarea>
+                        </div>
+
+                        <div class="form-footer">
+                            <div class="privacy-policy">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" id="agree" required> <a href="./privacypolicy.html"
+                                        target="_blank" style="text-decoration:underline">プライバシーポリシー</a>に同意する
+                                </label>
+                            </div>
+                            <button type="submit" class="btn-submit" id="submit-btn">内容を送信する</button>
+                            <div id="form-message"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="./inquiry.html">お問い合わせ</a>
+                <a href="./privacypolicy.html">個人情報保護方針</a>
+                <a href="https://www.instagram.com/choan.jp" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+            <p class="copyright">Copyright © Choan, LLC.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+            const inquiryForm = document.getElementById('inquiry-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const formMessage = document.getElementById('form-message');
+
+            if (inquiryForm) {
+                inquiryForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    // GASのウェブアプリURLをここに貼り付けてください
+                    const GAS_URL = 'https://script.google.com/macros/s/AKfycby5tXN6T8hG7zFjH8Y_uX9X_vX_XXXXXX/exec'; // 暫定URL
+
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = '送信中...';
+                    formMessage.style.display = 'none';
+
+                    const formData = new FormData(inquiryForm);
+
+                    // fetch で GAS へ送信
+                    fetch(GAS_URL, {
+                        method: 'POST',
+                        body: formData,
+                        mode: 'no-cors' // GASの制約上 no-cors を使用することが多い
+                    })
+                        .then(() => {
+                            // 成功時の処理
+                            formMessage.textContent = 'お問い合わせを受け付けました。ありがとうございます。';
+                            formMessage.className = 'success';
+                            formMessage.style.display = 'block';
+                            submitBtn.textContent = '送信完了';
+                            inquiryForm.reset();
+                            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        })
+                        .catch((error) => {
+                            // エラー時の処理
+                            console.error('Error:', error);
+                            formMessage.textContent = '送信中にエラーが発生しました。時間をおいて再度お試しいただくか、直接お電話にてお問い合わせください。';
+                            formMessage.className = 'error'; // スタイルが必要な場合は追加
+                            formMessage.style.display = 'block';
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = '内容を送信する';
+                        });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

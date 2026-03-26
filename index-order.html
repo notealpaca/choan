@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>オードブル・仕出し弁当 | 長安 (ちょうあん)</title>
+    <meta name="description" content="長安の仕出し弁当・オードブル。「Ristorante Aico × co」とのコラボレーションによる本格的な味をお楽しみください。">
+    <link rel="icon" type="image/png" href="./assets/choan-20240207.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #FCEAB5;
+            --color-text-main: #2c2c2c;
+            --color-text-muted: #6e6e6e;
+            --color-accent: #d35400;
+            --color-accent-light: #fbeee6;
+            --color-primary: #5d4037;
+            --border-radius: 12px;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.05);
+            --font-main: 'Zen Maru Gothic', sans-serif;
+            --max-width: 1000px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg);
+            color: var(--color-text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        /* Header */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(252, 252, 249, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 50;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1rem 0;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+        }
+
+        .cta-button-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cta-button-header:hover {
+            background-color: var(--color-accent);
+        }
+
+        /* Typography & Layout */
+        h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 3px;
+            background-color: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        .collaboration-note {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 3rem;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+        }
+
+        /* Cards */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card h3 {
+            font-size: 1.4rem;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-accent-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .price-tag span {
+            font-size: 0.9rem;
+            font-weight: normal;
+            color: var(--color-text-muted);
+        }
+
+        .menu-items {
+            list-style: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .menu-items li {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+        }
+
+        .box-info {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: auto;
+        }
+
+        /* Contact Box */
+        .company-info-wrapper {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            max-width: 800px;
+            margin: 3rem auto 0;
+            border: 1px solid #f0f0f0;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--color-primary);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.8s;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="./assets/choan-20240207.png" alt="合同会社 長安"></a>
+            </div>
+            <a href="index.html#contact" class="cta-button-header">お問い合わせ</a>
+        </div>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section class="section">
+            <div class="container">
+                <h2>お弁当メニュー</h2>
+                <div class="menu-grid">
+                    <!-- 松花堂 -->
+                    <div class="menu-card fade-in-section">
+                        <img src="./assets/shokadou.png" alt="松花堂弁当"
+                            style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                        <h3>松花堂弁当</h3>
+                        <p class="price-tag">2,750円 <span>(税込)</span></p>
+                        <ul class="menu-items">
+                            <li>魚の照り焼き・鰻・梅甘露煮</li>
+                            <li>天婦羅(茄子 里芋 獅子唐)</li>
+                            <li>アーサ入りだし巻き卵 ・海老寿司 ・フキの生ハム巻き</li>
+                            <li>苦瓜豆腐 ・ほうれん草とキノコのお浸し ・枝豆</li>
+                            <li>スーチカー</li>
+                            <li>煮物(蟹しんじょう 筍 南瓜 里芋 ブロッコリー)</li>
+                            <li>白米・香の物</li>
+                        </ul>
+                        <div class="box-info">
+                            ※容器サイズ(回収容器/メラミン素材): 縦24cm・横24cm
+                            ※季節により内容の変更がございます
+                        </div>
+                    </div>
+
+                    <!-- 梅A -->
+                    <div class="menu-card fade-in-section">
+                        <img src="./assets/umebentoA.png" alt="梅弁当A"
+                            style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                        <h3>梅弁当A</h3>
+                        <p class="price-tag">1,650円 <span>(税込)</span></p>
+                        <ul class="menu-items">
+                            <li>有頭海老の塩焼き・鮭の塩焼き・玉子焼き</li>
+                            <li>かぼちゃ・サラダ・ミニトマト・フルーツ</li>
+                            <li>人参しりしり・チキナー・白米・香の物</li>
+                        </ul>
+                        <div class="box-info">
+                            ※容器サイズ: 縦16cm・横25cm
+                            ※食材調達状況により内容の変更がございます
+                        </div>
+                    </div>
+
+                    <!-- 華弁当 -->
+                    <div class="menu-card fade-in-section">
+                        <img src="./assets/hanabento.png" alt="華弁当"
+                            style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                        <h3>華弁当</h3>
+                        <p class="price-tag">1,100円 <span>(税込)</span></p>
+                        <ul class="menu-items">
+                            <li>海老フライ・豚カツ・焼売・春巻き</li>
+                            <li>酢鶏・青椒肉絲・ポテトサラダ・ミニトマト</li>
+                            <li>ポテサラ・人参しりしり</li>
+                            <li>チキナー・白米 ・香の物</li>
+                        </ul>
+                        <div class="box-info">
+                            ※容器サイズ: 縦16cm・横25cm
+                            ※食材調達状況により内容の変更がございます
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 5rem;">オードブル</h2>
+                <p style="text-align: center; margin-bottom: 2rem; color: #666;">各5~6人前</p>
+                <div class="menu-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="menu-card fade-in-section" style="text-align: center;">
+                        <img src="./assets/oeuvreL.png" alt="大皿オードブル (L)"
+                            style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
+                        <h3 style="display: inline-block;">大皿オードブル (L)</h3>
+                        <p class="price-tag" style="font-size: 1.5rem;">8,800円 <span>(税込)</span></p>
+                        <p>※器サイズ：縦30cm 横40cm</p>
+                    </div>
+                    <div class="menu-card fade-in-section" style="text-align: center;">
+                        <img src="./assets/oeuvreM.png" alt="円形オードブル (M)"
+                            style="width: 70%; height: auto; border-radius: 8px; margin-bottom: 1rem; display: block; margin-left: auto; margin-right: auto;">
+                        <h3 style="display: inline-block;">円形オードブル (M)</h3>
+                        <p class="price-tag" style="font-size: 1.5rem;">5,500円 <span>(税込)</span></p>
+                        <p>※器サイズ：直径40cm</p>
+                    </div>
+                </div>
+
+                <div class="option-section fade-in-section"
+                    style="margin-top: 3rem; background:white; padding:2rem; border-radius:12px; box-shadow: 0 4px 6px rgba(0,0,0,0.03);">
+                    <h3 style="text-align:center; color: var(--color-primary); margin-bottom: 1.5rem;">オプションメニュー</h3>
+                    <ul style="max-width: 500px; margin: 0 auto; list-style: none;">
+                        <li
+                            style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                            <span>お茶 (ペットボトル)</span>
+                            <span>165円 (税込)</span>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                            <span>お茶 (紙パック)</span>
+                            <span>110円 (税込)</span>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #eee;">
+                            <span>ケーキセット</span>
+                            <span>990円 (税込)</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; padding: 0.5rem 0;">
+                            <span>その他 (セルフコーヒー hot/ice)</span>
+                            <span>お問い合わせ</span>
+                    </ul>
+                </div>
+
+                <div
+                    style="margin-top: 2rem; border: 1px solid #ddd; border-radius: 12px; padding: 1.5rem; background-color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <ul
+                        style="list-style: none; margin: 0; padding: 0; font-size: 0.9rem; color: #444; line-height: 1.8;">
+                        <li>*お届け日時/時間・ご連絡先・ご住所ご注文の際ご教示ください</li>
+                        <li>*時期・調達食材により、多少内容を変更する場合がございます</li>
+                        <li>*サービスに関する注意事項:ご利用規約・お取消し・その他、ご予約時にご確認ください</li>
+                        <li>*オードブルの他 握り寿司もございます</li>
+                        <li>*内容・ご予算等、お気軽にご相談ください</li>
+                    </ul>
+                </div>
+
+                <div class="company-info-wrapper fade-in-section" id="contact">
+                    <h3 style="text-align: center; margin-bottom: 1.5rem;">ご注文・お問い合わせ</h3>
+                    <p style="text-align: center; margin-bottom: 2rem;">
+                        ご注文はお電話またはホームページから。<br>
+                        受付：平日・土 11:00~17:00 (日・祝日休み)
+                    </p>
+                    <div class="info-row">
+                        Tel: 090-9783-2023 / 080-1759-4890
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 4rem; margin-bottom: 2rem;">
+                    <a href="./index.html"
+                        style="display: inline-block; background-color: var(--color-primary); color: white; padding: 0.8rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">トップページへ戻る</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">お問い合わせ</a>
+                <a href="#">個人情報保護方針</a>
+                <a href="https://www.instagram.com/choan.jp" target="_blank" rel="noopener noreferrer"
+                    style="display: inline-flex; align-items: center; gap: 4px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.486-.276a2.478 2.478 0 0 1-.919-.598 2.48 2.48 0 0 1-.599-.92c-.11-.281-.24-.704-.276-1.485-.038-.843-.047-1.096-.047-3.232 0-2.136.009-2.388.047-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                    </svg>
+                    Instagram
+                </a>
+            </div>
+            <p class="copyright">Copyright © Choan, LLC.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            });
+            document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
