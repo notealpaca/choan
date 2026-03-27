@@ -13,7 +13,7 @@
  * 6. 発行された「ウェブアプリのURL」を inquiry.html に貼り付ける
  */
 
-const NOTIFICATION_EMAIL = "sady225@gmail.com"; // 通知先メールアドレス info@choan2023.com
+const NOTIFICATION_EMAIL = "info@choan2023.com"; // 通知先メールアドレス 
 
 function doPost(e) {
   try {
@@ -28,7 +28,7 @@ function doPost(e) {
       params.name,
       params.company,
       params.email,
-      params.tel,
+      "'" + params.tel,
       params.reply,
       params.source,
       params.message
@@ -55,7 +55,9 @@ ${params.message}
 ${SpreadsheetApp.getActiveSpreadsheet().getUrl()}
 `;
     
-    GmailApp.sendEmail(NOTIFICATION_EMAIL, subject, body);
+    GmailApp.sendEmail(NOTIFICATION_EMAIL, subject, body, {
+      name: "長安問合せフォーム"
+    });
     
     // 成功レスポンス（CORS対応）
     return ContentService.createTextOutput(JSON.stringify({
