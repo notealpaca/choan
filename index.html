@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="./assets/choan-20240207.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -30,7 +30,7 @@
             --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.03);
             --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.08);
-            --font-main: 'Zen Maru Gothic', sans-serif;
+            --font-main: 'Noto Serif JP', serif;
             --max-width: 1000px;
         }
 
@@ -265,6 +265,17 @@
         .news-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
+            border-color: var(--color-accent);
+        }
+
+        .news-card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .news-card-link:hover {
+            color: inherit;
         }
 
         .news-date {
@@ -649,15 +660,28 @@
                                         displayExcerpt = displayExcerpt.substring(0, 60) + '...';
                                     }
 
-                                    articleEl.innerHTML = `
+                                    const contentHtml = `
                                         <span class="news-date">${article.date}</span>
                                         <h3 class="news-title">${article.title}</h3>
                                         <p class="news-excerpt">${displayExcerpt}</p>
                                         <div style="margin-top:auto">
                                             ${article.type ? `<span style="font-size:0.75rem; background:#f0f0f0; padding:2px 8px; border-radius:10px; color:#666; margin-bottom:0.5rem; display:inline-block;">${article.type}</span><br>` : ''}
-                                            ${article.instaUrl ? `<a href="${article.instaUrl}" target="_blank" rel="noopener noreferrer" class="read-more">インスタグラムで見る</a>` : ''}
+                                            ${article.instaUrl ? `<span class="read-more">詳細（インスタグラム）を見る</span>` : ''}
                                          </div>
                                     `;
+
+                                    if (article.instaUrl) {
+                                        const linkEl = document.createElement('a');
+                                        linkEl.href = article.instaUrl;
+                                        linkEl.target = '_blank';
+                                        linkEl.rel = 'noopener noreferrer';
+                                        linkEl.className = 'news-card-link';
+                                        linkEl.innerHTML = contentHtml;
+                                        articleEl.appendChild(linkEl);
+                                    } else {
+                                        articleEl.innerHTML = contentHtml;
+                                    }
+
                                     newsGrid.appendChild(articleEl);
                                 });
 
