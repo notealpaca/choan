@@ -31,7 +31,7 @@
 - **フビコン**:
   - `choan-20240207.png` を設定。
 - **スパム対策**:
-  - `index.html` のメールアドレス表示 (`info@choan2023.com`) を JavaScript による動的生成に変更し、ボットによる自動収集を防止。
+  - `index.html` のメールアドレス表示 (`choan2023@gmail.com`) を JavaScript による動的生成に変更し、ボットによる自動収集を防止。
 
 #### 2. 仕出し弁当・オードブル詳細ページ (`index-order.html`)
 - **新規作成**: PDF配布の予定を変更し、HTMLページとして実装。
